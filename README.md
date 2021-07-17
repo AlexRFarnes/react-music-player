@@ -1,6 +1,6 @@
 # React Music Player
 
-> A React music player app.
+> A React music player app built with Apollo Client, GraphQL, and Material UI.
 
 ## Table of contents
 
@@ -24,7 +24,7 @@
 
 - JavaScript
 - React
-- Apollo
+- Apollo Client
 - GraphQL
 - Material UI
 
