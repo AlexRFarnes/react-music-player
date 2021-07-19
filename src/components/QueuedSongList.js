@@ -8,29 +8,6 @@ import {
 import { Delete } from "@material-ui/icons";
 import React from "react";
 
-const useStyles = makeStyles({
-  avatar: {
-    width: 44,
-    height: 44,
-  },
-  text: {
-    textOverflow: "ellipsis",
-    overflow: "hidden",
-  },
-  container: {
-    display: "grid",
-    gridAutoFlow: "column",
-    gridTemplateColumns: "50px auto 50px",
-    gap: 12,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  songInfoContainer: {
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-  },
-});
-
 function QueuedSongList() {
   const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up("md"));
 
@@ -53,6 +30,29 @@ function QueuedSongList() {
     )
   );
 }
+
+const useStyles = makeStyles({
+  avatar: {
+    width: 44,
+    height: 44,
+  },
+  text: {
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+  },
+  container: {
+    display: "grid",
+    gridAutoFlow: "column",
+    gridTemplateColumns: "50px auto 50px",
+    gap: 12,
+    alignItems: "center",
+    marginTop: 10,
+  },
+  songInfoContainer: {
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+  },
+});
 
 function QueuedSong({ song }) {
   const classes = useStyles();
