@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
+import { ApolloProvider } from "@apollo/client";
+import client from "./graphql/client";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>,
+  <ApolloProvider client={client}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </ApolloProvider>,
   document.getElementById("root")
 );
