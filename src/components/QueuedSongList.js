@@ -1,3 +1,4 @@
+import { useMutation } from "@apollo/client";
 import {
   Avatar,
   IconButton,
@@ -7,6 +8,7 @@ import {
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 import React from "react";
+import { ADD_OR_REMOVE_FROM_QUEUE } from "../graphql/mutation";
 
 function QueuedSongList({ queue }) {
   const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up("md"));
@@ -50,8 +52,18 @@ const useStyles = makeStyles({
 
 function QueuedSong({ song }) {
   const classes = useStyles();
-
+  const [addOrRemoveFromQueue] = useMutation(ADD_OR_REMOVE_FROM_QUEUE, {
+    onCompleted: data => {
+      localStorage.setItem("queue", JSON.stringify(data.addOrRemoveFromQueue));
+    },
+  });
   const { thumbnail, artist, title } = song;
+
+  function handleAddOrRemoveFromQueue() {
+    addOrRemoveFromQueue({
+      variables: { input: { ...song, __typename: "Song" } },
+    });
+  }
 
   return (
     <div className={classes.container}>
@@ -67,7 +79,7 @@ function QueuedSong({ song }) {
           {artist}
         </Typography>
       </div>
-      <IconButton>
+      <IconButton onClick={handleAddOrRemoveFromQueue}>
         <Delete color='error' />
       </IconButton>
     </div>
