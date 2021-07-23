@@ -8,22 +8,16 @@ import {
 import { Delete } from "@material-ui/icons";
 import React from "react";
 
-function QueuedSongList() {
+function QueuedSongList({ queue }) {
   const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up("md"));
-
-  const song = {
-    title: "aesthetic song - lofi type beat",
-    artist: "Various Artists",
-    thumbnail: "https://img.youtube.com/vi/cbuZfY2S2UQ/0.jpg",
-  };
 
   return (
     greaterThanMd && (
       <div style={{ margin: "10px 0" }}>
         <Typography color='textSecondary' variant='button'>
-          QUEUE (5)
+          QUEUE ({queue.length})
         </Typography>
-        {Array.from({ length: 5 }, () => song).map((song, i) => (
+        {queue.map((song, i) => (
           <QueuedSong key={i} song={song} />
         ))}
       </div>

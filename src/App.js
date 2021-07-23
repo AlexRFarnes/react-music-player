@@ -4,13 +4,28 @@ import AddSong from "./components/AddSong";
 import Header from "./components/Header";
 import SongList from "./components/SongList";
 import SongPlayer from "./components/SongPlayer";
+import songReducer from "./reducer";
+
+export const SongContext = React.createContext({
+  song: {
+    id: "88f83922-1c28-40b5-ad6a-8055fdfc32d0",
+    title: "Girls Like You",
+    artist: "The Naked And Famous",
+    thumbnail: "http://img.youtube.com/vi/WUIm01odei0/0.jpg",
+    url: "https://www.youtube.com/watch?v=WUIm01odei0&t=166s",
+    duration: 247,
+  },
+  isPlaying: false,
+});
 
 function App() {
+  const initialSongState = React.useContext(SongContext);
+  const [state, dispatch] = React.useReducer(songReducer, initialSongState);
   const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up("md"));
   const greaterThanSm = useMediaQuery(theme => theme.breakpoints.up("sm"));
 
   return (
-    <>
+    <SongContext.Provider value={{ state, dispatch }}>
       <Hidden only='xs'>
         <Header />
       </Hidden>
@@ -47,7 +62,7 @@ function App() {
           <SongPlayer />
         </Grid>
       </Grid>
-    </>
+    </SongContext.Provider>
   );
 }
 
