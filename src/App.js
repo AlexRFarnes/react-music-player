@@ -12,7 +12,7 @@ export const SongContext = React.createContext({
     title: "Girls Like You",
     artist: "The Naked And Famous",
     thumbnail: "http://img.youtube.com/vi/WUIm01odei0/0.jpg",
-    url: "https://www.youtube.com/watch?v=WUIm01odei0&t=166s",
+    url: "https://www.youtube.com/watch?v=WUIm01odei0",
     duration: 247,
   },
   isPlaying: false,
