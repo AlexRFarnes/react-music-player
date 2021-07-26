@@ -19,8 +19,8 @@ function QueuedSongList({ queue }) {
         <Typography color='textSecondary' variant='button'>
           QUEUE ({queue.length})
         </Typography>
-        {queue.map((song, i) => (
-          <QueuedSong key={i} song={song} />
+        {queue.map(song => (
+          <QueuedSong key={song.id} song={song} />
         ))}
       </div>
     )
