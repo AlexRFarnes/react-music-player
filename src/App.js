@@ -8,12 +8,12 @@ import songReducer from "./reducer";
 
 export const SongContext = React.createContext({
   song: {
-    id: "88f83922-1c28-40b5-ad6a-8055fdfc32d0",
-    title: "Girls Like You",
-    artist: "The Naked And Famous",
-    thumbnail: "http://img.youtube.com/vi/WUIm01odei0/0.jpg",
-    url: "https://www.youtube.com/watch?v=WUIm01odei0",
-    duration: 247,
+    id: "",
+    title: "",
+    artist: "",
+    thumbnail: "",
+    url: "",
+    duration: 0,
   },
   isPlaying: false,
 });

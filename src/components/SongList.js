@@ -18,12 +18,6 @@ import { GET_SONGS } from "../graphql/subscriptions";
 function SongList() {
   const { data, loading, error } = useSubscription(GET_SONGS);
 
-  // const song = {
-  //   title: "aesthetic song - lofi type beat",
-  //   artist: "Various Artists",
-  //   thumbnail: "https://img.youtube.com/vi/cbuZfY2S2UQ/0.jpg",
-  // };
-
   if (loading) {
     return (
       <div
