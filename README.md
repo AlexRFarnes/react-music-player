@@ -25,6 +25,7 @@
 - JavaScript
 - React
 - Apollo Client
+- Hasura
 - GraphQL
 - Material UI
 
